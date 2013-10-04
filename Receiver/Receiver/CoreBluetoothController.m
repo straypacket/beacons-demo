@@ -96,6 +96,7 @@
         [self.delegate didUpdateRSSI:-100];
     
     _isConnected = NO;
+    [self findPeripherals];
 }
 
 #pragma mark - CBPeripheral delegate methods
@@ -140,8 +141,10 @@
     if (!_rssiArray.count)
         _rssiArray = [[NSMutableArray alloc] initWithArray: @[peripheral.RSSI, peripheral.RSSI, peripheral.RSSI, peripheral.RSSI, peripheral.RSSI]];
 
-    [_rssiArray replaceObjectAtIndex:_rssiArrayIndex withObject:peripheral.RSSI];
-    _rssiArrayIndex ++;
+    if (peripheral.RSSI != nil) {
+        [_rssiArray replaceObjectAtIndex:_rssiArrayIndex withObject:peripheral.RSSI];
+        _rssiArrayIndex ++;
+    }
     
     if (_rssiArrayIndex > 4)
         _rssiArrayIndex = 0;
@@ -152,6 +155,7 @@
         if ([tempDelegate respondsToSelector:@selector(didUpdateRSSI:)])
             [self.delegate didUpdateRSSI:[self averageFromLastRSSI]];
     }
+    
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
