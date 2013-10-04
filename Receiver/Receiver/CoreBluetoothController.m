@@ -155,7 +155,6 @@
         if ([tempDelegate respondsToSelector:@selector(didUpdateRSSI:)])
             [self.delegate didUpdateRSSI:[self averageFromLastRSSI]];
     }
-    
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
