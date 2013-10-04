@@ -175,6 +175,11 @@
 
 - (void)readPeripheralRSSI
 {
+//    NSArray *uuidArray = [NSArray arrayWithObjects:[CBUUID UUIDWithString:SERVICE_UUID], nil];
+//    [self.manager retrievePeripherals:uuidArray];
+//    NSLog(@"%d", uuidArray.count);
+    
+    NSLog(@"Found %d peripherals", self.rssiArray.count);
     [self.pairedPeripheral readRSSI];
 }
 

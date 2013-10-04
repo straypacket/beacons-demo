@@ -26,7 +26,7 @@
     _bluetoothController.delegate = self;
     /*if (!_bluetoothController.isConnected)
         [_bluetoothController findPeripherals];*/
-    
+
     [_bluetoothController startReadingRSSI];
 }
 
@@ -36,22 +36,22 @@
 {
     if (RSSI < 0 && RSSI > -50) {
         
-        _infoLabel.text = [NSString stringWithFormat:@"Immediate"];
+        _infoLabel.text = [NSString stringWithFormat:@"Immediate (%i)", RSSI];
         NSLog(@"Immediate");
     }
     else if (RSSI <= -50 && RSSI >= -80) {
         
-        _infoLabel.text = [NSString stringWithFormat:@"Near"];
+        _infoLabel.text = [NSString stringWithFormat:@"Near (%i)", RSSI];
         NSLog(@"Near");
     }
     else if (RSSI < -80) {
         
-        _infoLabel.text = [NSString stringWithFormat:@"Far"];
+        _infoLabel.text = [NSString stringWithFormat:@"Far (%i)", RSSI];
         NSLog(@"Far");
     }
     else {
         
-        _infoLabel.text = [NSString stringWithFormat:@"Unknown"];
+        _infoLabel.text = [NSString stringWithFormat:@"Unknown　(%i)", RSSI];
         NSLog(@"Unknown");
     }
 }

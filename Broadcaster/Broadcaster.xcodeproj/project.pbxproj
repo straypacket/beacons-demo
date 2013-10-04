@@ -219,6 +219,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Estimote, Inc.";
+				TargetAttributes = {
+					1828C80317AB2A020052C67F = {
+						DevelopmentTeam = UNX3Q4LWD6;
+					};
+				};
 			};
 			buildConfigurationList = 1828C7FF17AB2A020052C67F /* Build configuration list for PBXProject "Broadcaster" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -405,10 +410,13 @@
 		1828C84017AB2A020052C67F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Broadcaster/Broadcaster-Prefix.pch";
 				INFOPLIST_FILE = "Broadcaster/Broadcaster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -416,10 +424,13 @@
 		1828C84117AB2A020052C67F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Broadcaster/Broadcaster-Prefix.pch";
 				INFOPLIST_FILE = "Broadcaster/Broadcaster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -477,6 +488,7 @@
 				1828C84117AB2A020052C67F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1828C84217AB2A020052C67F /* Build configuration list for PBXNativeTarget "BroadcasterTests" */ = {
 			isa = XCConfigurationList;
@@ -485,6 +497,7 @@
 				1828C84417AB2A020052C67F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
