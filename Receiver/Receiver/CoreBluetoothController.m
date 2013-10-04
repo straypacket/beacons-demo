@@ -48,7 +48,6 @@
         [self findPeripherals];
     
     else {
-        
         //should invoke a delegate method
     }
 }
@@ -91,11 +90,13 @@
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
+    NSLog(@"Peripheral Disconnected");
     id tempDelegate = self.delegate;
     if ([tempDelegate respondsToSelector:@selector(didUpdateRSSI:)])
         [self.delegate didUpdateRSSI:-100];
     
     _isConnected = NO;
+    [self findPeripherals];
 }
 
 #pragma mark - CBPeripheral delegate methods
@@ -139,10 +140,12 @@
     
     if (!_rssiArray.count)
         _rssiArray = [[NSMutableArray alloc] initWithArray: @[peripheral.RSSI, peripheral.RSSI, peripheral.RSSI, peripheral.RSSI, peripheral.RSSI]];
-
-    [_rssiArray replaceObjectAtIndex:_rssiArrayIndex withObject:peripheral.RSSI];
-    _rssiArrayIndex ++;
     
+    if (peripheral.RSSI != nil) {
+        [_rssiArray replaceObjectAtIndex:_rssiArrayIndex withObject:peripheral.RSSI];
+        _rssiArrayIndex ++;
+    }
+
     if (_rssiArrayIndex > 4)
         _rssiArrayIndex = 0;
     
@@ -179,7 +182,6 @@
 //    [self.manager retrievePeripherals:uuidArray];
 //    NSLog(@"%d", uuidArray.count);
     
-    NSLog(@"Found %d peripherals", self.rssiArray.count);
     [self.pairedPeripheral readRSSI];
 }
 

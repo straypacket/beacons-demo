@@ -37,22 +37,22 @@
     if (RSSI < 0 && RSSI > -50) {
         
         _infoLabel.text = [NSString stringWithFormat:@"Immediate (%i)", RSSI];
-        NSLog(@"Immediate");
+        NSLog(@"Immediate(%i)", RSSI);
     }
     else if (RSSI <= -50 && RSSI >= -80) {
         
         _infoLabel.text = [NSString stringWithFormat:@"Near (%i)", RSSI];
-        NSLog(@"Near");
+        NSLog(@"Near(%i)", RSSI);
     }
     else if (RSSI < -80) {
         
         _infoLabel.text = [NSString stringWithFormat:@"Far (%i)", RSSI];
-        NSLog(@"Far");
+        NSLog(@"Far(%i)", RSSI);
     }
     else {
         
         _infoLabel.text = [NSString stringWithFormat:@"Unknown　(%i)", RSSI];
-        NSLog(@"Unknown");
+        NSLog(@"Unknown(%i)", RSSI);
     }
 }
 
